@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import AddPost from './components/AddPost';
+import SearchPost from './components/SearchPost';
+import TrackPost from './components/TrackPost';
+import ViewPost from './components/ViewPost';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AddPost/>
+      <SearchPost/>
+      <TrackPost/>
+      <ViewPost/>
+      
     </div>
   );
 }
