@@ -1,8 +1,10 @@
 import React from 'react'
+import NavBar from './NavBar'
 
 const AddPost = () => {
   return (
     <div>
+        <NavBar/>
         <div className="container">
             <h1><center>POST APPLICATION</center></h1>
             <div className="row g-3">
