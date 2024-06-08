@@ -1,24 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from './NavBar'
+import axios from 'axios'
 
 const ViewPost = () => {
-    const [data,setdata]=useState(
-        [
-            {"userid":1,"postid":1,"title":"ABC"},
-            {"userid":2,"postid":2,"title":"HGG"},
-            {"userid":3,"postid":3,"title":"MJM"},
-            {"userid":4,"postid":4,"title":"UJK"},
-            {"userid":5,"postid":5,"title":"JKL"},
-            {"userid":6,"postid":6,"title":"tfh"},
-            {"userid":7,"postid":7,"title":"kjg"},
-            {"userid":8,"postid":8,"title":"dgh"},
-            {"userid":9,"postid":9,"title":"dhj"},
-            {"userid":10,"postid":10,"title":"RED"},
-            {"userid":11,"postid":11,"title":"RGV"},
-            {"userid":12,"postid":12,"title":"RRC"},
-            {"userid":13,"postid":13,"title":"KGS"}
-        ]
-    )
+    const [data,setdata]=useState([])
+    const fetchData=() => {
+axios.get("https://jsonplaceholder.typicode.com/posts").then(
+  (response)=>{
+    console.log(response.data)
+    setdata(response.data)
+  }
+).catch().finally()
+    }
+useEffect(()=>fetchData(),[])
+    
   return (
     <div>
         <NavBar/>
@@ -32,7 +27,7 @@ const ViewPost = () => {
   <thead>
     <tr>
       <th scope="col">USER ID</th>
-      <th scope="col">POST ID</th>
+      <th scope="col"> ID</th>
       <th scope="col">TITLE</th>
     
     </tr>
@@ -42,9 +37,10 @@ const ViewPost = () => {
         return <tbody>
         <tr>
         
-          <td>{value.userid}</td>
-          <td>{value.postid}</td>
+          <td>{value.userId}</td>
+          <td>{value.id}</td>
           <td>{value.title}</td>
+          <td>{value.body}</td>
         </tr>
         
       </tbody>
